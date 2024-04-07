@@ -6,6 +6,7 @@
 #define C_JSON_C_JSON_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * JSON_TEXT -> *ws value *ws
@@ -81,9 +82,10 @@ struct sj_member {
 
 // Value data type
 
+struct simple_json parse_simple_json(char *filename);
 
-struct simple_json *parse_simple_json(char *filename);
+void free_simple_json(struct simple_json json);
 
-void free_simple_json(struct simple_json *json);
+void print_simple_json(struct simple_json json);
 
 #endif //C_JSON_C_JSON_H
