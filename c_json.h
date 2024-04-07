@@ -79,10 +79,6 @@ struct sj_member {
     struct simple_json value;
 };
 
-
-
-
-
 // Value data type
 
 
