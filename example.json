@@ -1,0 +1,64 @@
+{
+  "company": "Tech Solutions Inc.",
+  "established_year": 2005,
+  "foo" : true,
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "projects": [
+        {
+          "id": "PRJ001",
+          "name": "Project X",
+          "description": "Developing a new mobile application",
+          "start_date": "2024-01-15",
+          "end_date": "2024-08-30"
+        },
+        {
+          "id": "PRJ002",
+          "name": "Project Y",
+          "description": "Revamping the company's website",
+          "start_date": "2023-10-01",
+          "end_date": "2024-05-31"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "UX/UI Designer",
+      "department": "Design",
+      "projects": [
+        {
+          "id": "PRJ002",
+          "name": "Project Y",
+          "description": "Revamping the company's website",
+          "start_date": "2023-10-01",
+          "end_date": "2024-05-31"
+        },
+        {
+          "id": "PRJ003",
+          "name": "Project Z",
+          "description": "Designing a new logo for the company",
+          "start_date": "2024-02-15",
+          "end_date": "2024-04-30"
+        }
+      ]
+    }
+  ],
+  "departments": [
+    {
+      "name": "Engineering",
+      "manager": "John Doe",
+      "location": "Building A, 5th Floor"
+    },
+    {
+      "name": "Design",
+      "manager": "Jane Smith",
+      "location": "Building B, 3rd Floor"
+    }
+  ]
+}
+
