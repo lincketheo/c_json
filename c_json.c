@@ -276,7 +276,7 @@ int parse_object(FILE *fp, struct sj_object *dest) {
         } else if (c == ',') {
             continue;
         } else {
-            sj_error("Invalid terminating char\n");
+            sj_error("Parse object: Invalid terminating char: %c\n", c);
             free(members);
             return -1;
         }
@@ -318,7 +318,7 @@ int parse_array(FILE *fp, struct sj_array *dest) {
         } else if (c == ',') {
             continue;
         } else {
-            sj_error("Invalid terminating char\n");
+            sj_error("Parse array: Invalid terminating char: %c\n", c);
             free(values);
             return -1;
         }
