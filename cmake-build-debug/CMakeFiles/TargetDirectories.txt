@@ -1,4 +1,0 @@
-/Users/theolincke/CLionProjects/c_json/cmake-build-debug/CMakeFiles/cjson.dir
-/Users/theolincke/CLionProjects/c_json/cmake-build-debug/CMakeFiles/main.dir
-/Users/theolincke/CLionProjects/c_json/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/theolincke/CLionProjects/c_json/cmake-build-debug/CMakeFiles/rebuild_cache.dir
