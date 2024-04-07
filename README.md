@@ -1,6 +1,7 @@
 # Version 0.0.1
 
 **State:** Green path works. (Try main.c)
+
 **Need to do Features:**
 
 - Test various edge cases
@@ -19,6 +20,7 @@
 int main() {
     struct simple_json json = parse_simple_json("./example.json");
     print_simple_json(json);
+    free_simple_json(json);
     return 0;
 }
 ```
