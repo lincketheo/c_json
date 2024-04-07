@@ -13,6 +13,7 @@
 - Handle \uXXXX in string
 - Make sj\_object a hashmap instead of list
 - Add real tests
+- The zero edge case in int is handled wrong
 
 # Usage:
 
