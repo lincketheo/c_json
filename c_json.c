@@ -558,6 +558,45 @@ void print_simple_json(struct simple_json json) {
     }
 }
 
+void free_simple_json_member(struct sj_member member) {
+    free(member.key);
+    member.key = NULL;
+    free_simple_json(member.value);
+}
+
+void free_simple_json(struct simple_json json) {
+    switch (json.type) {
+        case 1:
+            for (int i = 0; i < json.data.object.len; ++i) {
+                print_sj_member(json.data.object.members[i]);
+                if (i != json.data.object.len - 1) {
+                    free_simple_json_member(json.data.object.members[i]);
+                }
+                json.data.object.members = NULL;
+                json.data.object.len = 0;
+            }
+            break;
+        case 2:
+            for (int i = 0; i < json.data.array.len; ++i) {
+                print_simple_json(json.data.array.values[i]);
+                if (i != json.data.array.len - 1) {
+                    free_simple_json(json.data.array.values[i]);
+                }
+                json.data.array.values = NULL;
+                json.data.array.len = 0;
+            }
+            break;
+        case 3:
+            print_sj_number(json.data.number);
+            break;
+        case 4:
+            free(json.data.string);
+            break;
+        default:
+            break;
+    }
+}
+
 int64_t quick_pow10(int n) {
     static int64_t pow10[19] = {
             1, 10, 100, 1000, 10000,
@@ -594,6 +633,7 @@ double quick_pow10d(int n) {
 }
 
 
+// TODO
 struct file_stream {
     FILE *fp;
     char buffer[100];
@@ -614,4 +654,5 @@ struct char_stream {
     union char_stream_data data;
     int type;
 };
+
 
