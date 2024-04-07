@@ -9,6 +9,7 @@
 - JSON Path - For now, you'll have to manually get stuff from data structures
 - e is currently broken in parse_num
 - Add detailed context when error
+- Handle \uXXXX in string
 
 # Usage:
 
