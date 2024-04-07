@@ -572,6 +572,7 @@ void free_simple_json(struct simple_json json) {
                 if (i != json.data.object.len - 1) {
                     free_simple_json_member(json.data.object.members[i]);
                 }
+                free(json.data.object.members);
                 json.data.object.members = NULL;
                 json.data.object.len = 0;
             }
@@ -582,6 +583,7 @@ void free_simple_json(struct simple_json json) {
                 if (i != json.data.array.len - 1) {
                     free_simple_json(json.data.array.values[i]);
                 }
+                free(json.data.array.values);
                 json.data.array.values = NULL;
                 json.data.array.len = 0;
             }
