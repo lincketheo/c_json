@@ -53,8 +53,6 @@ struct sj_member {
     struct simple_json value;
 };
 
-// Value data type
-
 struct simple_json parse_simple_json(char *filename);
 
 void free_simple_json(struct simple_json json);
