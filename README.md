@@ -12,6 +12,7 @@
 - Add detailed context when error
 - Handle \uXXXX in string
 - Make sj\_object a hashmap instead of list
+- Add real tests
 
 # Usage:
 
