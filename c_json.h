@@ -8,55 +8,72 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// List of members
-struct sj_object {
-    struct sj_member *members;
-    size_t len;
+enum json_type {
+  BOOL = 0,
+  OBJECT = 1,
+  ARRAY = 2,
+  NUMBER = 3,
+  STRING = 4,
+  JSON_NULL = 5,
+  UNKNOWN = 6,
 };
 
-// List of simple_jsons
-struct sj_array {
-    struct simple_json *values;
-    size_t len;
+// List of members
+struct json_object {
+  struct json_member *members;
+  size_t len;
+};
+
+// List of jsons
+struct json_array {
+  struct json *values;
+  size_t len;
 };
 
 // Number data type
-union sj_number_dt {
-    int64_t int_val;
-    double float_val;
+union json_number_dt {
+  int64_t int_val;
+  double float_val;
+};
+
+enum number_type {
+  DEC,
+  FLOAT
 };
 
 // Number
-struct sj_number {
-    union sj_number_dt data;
-    int type;
+struct json_number {
+  union json_number_dt data;
+  enum number_type type;
 };
 
-union sj_value_dt {
-    int bool_value;
-    struct sj_object object;
-    struct sj_array array;
-    struct sj_number number;
-    char *string;
-    int null;
+union json_value_dt {
+  int bool_value;
+  struct json_object object;
+  struct json_array array;
+  struct json_number number;
+  char *string;
+  int null;
 };
 
 // Simple Json Root
-struct simple_json {
-    union sj_value_dt data;
-    int type;
+struct json {
+  union json_value_dt data;
+  enum json_type type;
 };
 
-// Key : simple_json
-struct sj_member {
-    char *key;
-    struct simple_json value;
+// Key : json
+struct json_member {
+  char *key;
+  struct json value;
 };
 
-struct simple_json parse_simple_json(char *filename);
+int fparse_json(const char *filename, struct json* dest);
 
-void free_simple_json(struct simple_json json);
+int str_parse_json(const char *data, struct json* dest);
 
-void print_simple_json(struct simple_json json);
+void free_json(struct json json);
+
+void print_json(struct json json);
 
 #endif //C_JSON_C_JSON_H
